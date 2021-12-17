@@ -4,6 +4,8 @@ const express = require('express')
 const hbs = require('hbs')
 
 const app = express() // calling the express
+//For heroku
+const port = process.env.PORT || 3000
 
 //Include the util files 
 const forecast = require('./utils/forecast.js')
@@ -113,8 +115,8 @@ app.get(('/help/*'),(req,res)=>{
 
 //Create and render a 404 page with handlebars
 //starting the server - single time initation
-app.listen(3000,()=>{
-    console.log('Server is up on the port 3000')
+app.listen(port,()=>{
+    console.log('Server is up on the port '+port)
 })
 
 

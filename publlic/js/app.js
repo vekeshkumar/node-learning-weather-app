@@ -1,12 +1,8 @@
-
 fetch('http://puzzle.mead.io/puzzle').then((response)=>{
     response.json().then((data)=>{ //callback
         console.log(data)
     })
 }) //client side o.peration- fetch
-
-
-
 
 const weatherForm = document.querySelector('form')
 const searchElement = document.querySelector('input')
@@ -14,14 +10,12 @@ const searchElement = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 
-
-
 weatherForm.addEventListener('submit',(e)=>{
     messageOne.textContent = 'loading...'
     e.preventDefault()
     const location = searchElement.value
     //Fetch weather for Boston
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{
         messageOne.textContent = ''
         messageTwo.textContent = ''
         response.json().then((data)=>{
