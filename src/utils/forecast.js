@@ -11,9 +11,9 @@ const forecast = (lat,long,callback)=>{
         else if(body.error){
             callback('Unable to reach the service, Please try again with different input!!',undefined)
         }else{
-            callback(undefined,{forecast:body.current.weather_descriptions[0],
-                                temperature:body.current.temperature,
-                                feelsLike:body.current.feelslike})
+            callback(undefined,('Hey, it\'s '+body.current.weather_descriptions[0]+' throughout the day. It is currently '
+                                +body.current.temperature+' degree and it feels like '+
+                                body.current.feelslike+' degree. \n The humidity is '+body.current.humidity+'% also the wind_speed is '+body.current.wind_speed))
         }
     })
 //weather_descriptions throughout the day. It is currently  degrees outerHeight. There is  chance of rain.
